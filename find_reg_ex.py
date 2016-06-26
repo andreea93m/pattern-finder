@@ -2,7 +2,7 @@ import re
 import itertools
 import glob
 import argparse
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 
 class PatternFinder(object):
 
@@ -10,7 +10,7 @@ class PatternFinder(object):
 		""" Initializes the object and creates a pool of 4 processes """
 
 		super(PatternFinder, self).__init__()
-		self.pool = Pool(processes=4)
+		self.pool = Pool(processes=cpu_count())
 
 	def find(self, pattern, files):
 		""" For each file, calls a function that searches for the pattern in
