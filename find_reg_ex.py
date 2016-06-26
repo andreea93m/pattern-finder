@@ -36,7 +36,7 @@ class PatternFinder(object):
 		for line in lines:
 			res = re.search(pattern, line, re.DOTALL)
 			if res is not None:
-				ids.append(re.search('^(\d+)', line[:res.start()]).group(0))
+				ids.append(int(re.search('^(\d+)', line[:res.start()]).group(0)))
 		
 		file.close()
 
