@@ -4,7 +4,7 @@
 - `$ cd pattern-finder`
 - `$ python test_pattern_finder.py`
 
-The program uses the unittest Python module to run a few tests that search for different patterns in regular expression format in a set of files and check that the returned IDs are correct. The input files contain lines in the format: [id]':'[content]. The tests are in the <i>test_pattern_finder.py</i> file, while the logic is in <i>find_reg_ex.py</i>. To run the tests, follow the instructions above. To search for a pattern, provide the pattern and the files as command line arguments, like this:
+The program uses the <i>unittest</i> Python module to run a few tests that search for different patterns in regular expression format in a set of files and check that the returned IDs are correct. The input files contain lines in the format: [id]':'[content]. The tests are in the <i>test_pattern_finder.py</i> file, while the logic is in <i>find_reg_ex.py</i>. To run the tests, follow the instructions above. To search for a pattern, provide the pattern and the files as command line arguments, like this:
 
 - `$ python find_reg_ex.py --pattern 'Section \d+ Refresh' --files 'input/*.html'`
 
