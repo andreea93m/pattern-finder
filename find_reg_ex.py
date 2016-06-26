@@ -57,11 +57,12 @@ class PatternFinder(object):
 
 		self.__dict__.update(state)	
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--pattern", type=str, help="provide search pattern in regular expression syntax", required=True)
-parser.add_argument("--files", type=str, help="provide input files", required=True)
-args = parser.parse_args()
-if args.pattern is not None and args.files is not None:
-	print("Searching for " + args.pattern + " in " + args.files)
-	patternFinder = PatternFinder()
-	print(patternFinder.find(args.pattern, glob.glob(args.files)))
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("--pattern", type=str, help="provide search pattern in regular expression syntax", required=True)
+	parser.add_argument("--files", type=str, help="provide input files", required=True)
+	args = parser.parse_args()
+	if args.pattern is not None and args.files is not None:
+		print("Searching for " + args.pattern + " in " + args.files)
+		patternFinder = PatternFinder()
+		print(patternFinder.find(args.pattern, glob.glob(args.files)))
