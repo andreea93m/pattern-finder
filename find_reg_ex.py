@@ -1,5 +1,7 @@
 import re
 import itertools
+import glob
+import argparse
 from multiprocessing import Pool
 
 class PatternFinder(object):
@@ -53,4 +55,13 @@ class PatternFinder(object):
 	def __setstate__(self, state):
 		""" Called upon unpickling """
 
-		self.__dict__.update(state)
+		self.__dict__.update(state)	
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--pattern", type=str, help="provide search pattern in regular expression syntax")
+parser.add_argument("--files", type=str, help="provide input files")
+args = parser.parse_args()
+if args.pattern is not None and args.files is not None:
+	print("Searching for " + args.pattern + " in " + args.files)
+	patternFinder = PatternFinder()
+	print(patternFinder.find(args.pattern, glob.glob(args.files)))
